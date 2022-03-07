@@ -1,7 +1,7 @@
 # Stock price tracking
 Stock price tracking application with Node
 
-## Installation
+## Installation 
 
 1. Clone the repository in your machine
 ```bash
@@ -11,6 +11,8 @@ git clone https://github.com/pauloavj/Stock_price_tracking.git
 ```bash
 npm install
 ```
+## Running script
+
 3. run the application
 ```bash
 npm run start
