@@ -1,0 +1,24 @@
+{
+  "name": "stock_price_tracking",
+  "version": "1.0.0",
+  "description": "Stock tracking",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pauloavj/Stock_price_tracking.git"
+  },
+  "author": "Paulo Vieira",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "socket.io": "^4.4.1"
+  },
+  "bugs": {
+    "url": "https://github.com/pauloavj/Stock_price_tracking/issues"
+  },
+  "homepage": "https://github.com/pauloavj/Stock_price_tracking#readme"
+}

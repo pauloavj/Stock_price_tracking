@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Stock Tracker</title>
+    </head>
+    <body>
+        <h1 id = "allStock">Stocks</h1>
+            <p id="stock1"></p>
+            <p id="stock2"></p>
+            <p id="stock3"></p>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            // socket connection
+            const socket = io();
+
+            //Read and display all stock values
+            socket.on('load', (stock) => {
+                const stockNames = Object.getOwnPropertyNames(stock)
+                const stockValues = Object.values(stock)
+                const stockName1 = document.getElementById('stock1');
+                stockName1.innerText = (stockNames[0] + ': ' + stockValues[0])
+                const stockName2 = document.getElementById('stock2');
+                stockName2.innerText = (stockNames[1] + ': ' + stockValues[1])
+                const stockName3 = document.getElementById('stock3');
+                stockName3.innerText = (stockNames[2] + ': ' + stockValues[2])
+            })
+            
+            //Update stock values if it exist
+            socket.on('update_stocks', (stock) => {
+                // console.log(stock)
+                switch (stock.stockName) {
+                    case "ABC Traders":
+                        const stockName1 = document.getElementById('stock1');
+                        stockName1.innerText = (stock.stockName + ': ' + stock.price)
+                        break;
+                    case "Trendy FinTech":
+                        const stockName2 = document.getElementById('stock2');
+                        stockName2.innerText = (stock.stockName + ': ' + stock.price)
+                        break;
+                    case "SuperCorp":
+                        const stockName3 = document.getElementById('stock3');
+                        stockName3.innerText = (stock.stockName + ': ' + stock.price)
+                        break;
+                    default:
+                        break;
+                }
+
+            })
+        </script>
+    </body>
+</html>
